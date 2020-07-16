@@ -2,10 +2,28 @@
 Input: a List of integers
 Returns: a List of integers
 '''
-def product_of_all_other_numbers(arr):
-    # Your code here
 
-    pass
+# Psuedocode
+# define new array
+# for i in range(len(array))
+    # define product as 1
+    # for j in range(len(array))
+        # if i != j
+            # product *= array[j]
+    # new array.append(product)
+# return new array
+
+# First pass
+def product_of_all_other_numbers(arr):
+    product_array = []
+    for i in range(len(arr)):
+        product = 1
+        for j in range(len(arr)):
+            if i != j:
+                product *= arr[j]
+        product_array.append(product)
+    return product_array
+
 
 
 if __name__ == '__main__':

@@ -2,10 +2,27 @@
 Input: a List of integers
 Returns: a List of integers
 '''
-def moving_zeroes(arr):
-    # Your code here
+# Psuedocode 
+# define end index
+# define current index as 0
+# while cur < end
+    # if arr[current] == 0
+        # arr.append(arr.pop(current))
+        # end -= 1
+    # current += 1
+# return arr
 
-    pass
+def moving_zeroes(arr):
+    end = len(arr) - 1
+    cur = 0
+    while cur <= end:
+        if arr[cur] == 0:
+            arr.append(arr.pop(cur))
+            end -= 1
+        else:
+            cur += 1
+
+    return arr
 
 
 if __name__ == '__main__':
