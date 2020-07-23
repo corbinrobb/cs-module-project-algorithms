@@ -12,15 +12,33 @@ Returns: an integer
 # return remaining nums in new array
 
 # First Pass
-def single_number(arr):
-    new_arr = []
-    for n in arr:
-        if n in new_arr:
-            new_arr.pop(new_arr.index(n))
-        else:
-            new_arr.append(n)
+# def single_number(arr):
+#     new_arr = []
+#     for n in arr:
+#         if n in new_arr:
+#             new_arr.pop(new_arr.index(n))
+#         else:
+#             new_arr.append(n)
             
-    return new_arr[0]
+#     return new_arr[0]
+
+
+# 2nd Psuedo
+# loop over array and enumerate for index:
+#   use index() and see if number exists after the current index
+#   if it exists then pop the 2nd value
+#   else it doesnt exist return value
+
+# Doesn't take up more space
+
+# Second
+def single_number(arr):
+    for i, n in enumerate(arr):
+        try:
+            pair_index = arr.index(n, i + 1)
+            arr.pop(pair_index)
+        except ValueError as e:
+            return n
 
 
 if __name__ == '__main__':

@@ -14,14 +14,44 @@ Returns: a List of integers
 # return new array
 
 # First pass
+# def product_of_all_other_numbers(arr):
+#     product_array = []
+#     for i in range(len(arr)):
+#         product = 1
+#         for j in range(len(arr)):
+#             if i != j:
+#                 product *= arr[j]
+#         product_array.append(product)
+#     return product_array
+
+
+# 2nd psuedo
+
+# start at beginning and end:
+# loop forward through array
+#   store cumulative product for each number before in index in new array
+# 
+# loop from end to start
+#   mulitply cumilutave product for each num after by the number in same index in new array
+# 
+# return new array
+
+# 2nd
 def product_of_all_other_numbers(arr):
     product_array = []
-    for i in range(len(arr)):
-        product = 1
-        for j in range(len(arr)):
-            if i != j:
-                product *= arr[j]
-        product_array.append(product)
+
+    before_prod = 1
+    for n in range(len(arr)):
+        product_array.append(before_prod)
+
+        before_prod *= arr[n]
+
+    after_prod = 1
+    for n in range(len(arr) - 1, -1, -1):
+        product_array[n] *= after_prod
+
+        after_prod *= arr[n]
+
     return product_array
 
 
